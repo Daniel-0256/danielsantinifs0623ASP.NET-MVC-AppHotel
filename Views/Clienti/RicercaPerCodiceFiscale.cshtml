@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AppHotel.Models.Prenotazione>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Data Prenotazione</th>
+                <th>Inizio Soggiorno</th>
+                <th>Fine Soggiorno</th>
+                <th>Caparra</th>
+                <th>Tariffa Giornaliera</th>
+                <th>Dettagli</th>
+                <th>ID Cliente</th>
+                <th>ID Camera</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DataPrenotazione.ToShortDateString())</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataInizio.ToShortDateString())</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataFine.ToShortDateString())</td>
+                    <td>@Html.DisplayFor(modelItem => item.Caparra)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tariffa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Dettagli)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdCliente)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdCamera)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nessuna prenotazione trovata.</p>
+}

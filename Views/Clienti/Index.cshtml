@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AppHotel.Models.Cliente>
+
+<input type="text" id="codiceFiscaleInput" />
+<button onclick="ricercaPerCodiceFiscale()">Cerca per Codice Fiscale</button>
+<div id="risultatiRicerca"></div>
+
+<p>
+    @Html.ActionLink("Crea Nuovo Cliente", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>Id Cliente</th>
+        <th>Codice Fiscale</th>
+        <th>Cognome</th>
+        <th>Nome</th>
+        <th>Città</th>
+        <th>Provincia</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Cellulare</th>
+        <th></th>
+    </tr>
+    @foreach (var cliente in Model)
+    {
+        <tr>
+            <td>@cliente.IdCliente</td>
+            <td>@cliente.CodiceFiscale</td>
+            <td>@cliente.Cognome</td>
+            <td>@cliente.Nome</td>
+            <td>@cliente.Citta</td>
+            <td>@cliente.Provincia</td>
+            <td>@cliente.Email</td>
+            <td>@cliente.Telefono</td>
+            <td>@cliente.Cellulare</td>
+            <td>
+                @Html.ActionLink("Dettagli", "Details", new { id = cliente.IdCliente })
+                @Html.ActionLink("Modifica", "Edit", new { id = cliente.IdCliente })
+                @Html.ActionLink("Elimina", "Delete", new { id = cliente.IdCliente })
+            </td>
+        </tr>
+    }
+</table>
+
+
+<script>
+function ricercaPerCodiceFiscale() {
+    var codiceFiscale = $('#codiceFiscaleInput').val();
+    $.ajax({
+        url: '@Url.Action("RicercaPerCodiceFiscale", "Clienti")',
+        type: 'GET',
+        data: { codiceFiscale: codiceFiscale },
+        success: function(data) {
+            $('#risultatiRicerca').html(data);
+        },
+        error: function (xhr, status, error) {
+            alert("Errore: " + status + " - " + error + "\n" + xhr.responseText);
+        }
+    });
+}
+</script>

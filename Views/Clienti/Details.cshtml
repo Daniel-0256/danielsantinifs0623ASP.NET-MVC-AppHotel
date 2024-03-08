@@ -1,0 +1,30 @@
+﻿@model AppHotel.Models.Cliente
+
+<div>
+    <h4>Dettagli Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Id Cliente</dt>
+        <dd>@Model.IdCliente</dd>
+        <dt>Codice Fiscale</dt>
+        <dd>@Model.CodiceFiscale</dd>
+        <dt>Cognome</dt>
+        <dd>@Model.Cognome</dd>
+        <dt>Nome</dt>
+        <dd>@Model.Nome</dd>
+        <dt>Città</dt>
+        <dd>@Model.Citta</dd>
+        <dt>Provincia</dt>
+        <dd>@Model.Provincia</dd>
+        <dt>Email</dt>
+        <dd>@Model.Email</dd>
+        <dt>Telefono</dt>
+        <dd>@Model.Telefono</dd>
+        <dt>Cellulare</dt>
+        <dd>@Model.Cellulare</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.IdCliente }) |
+    @Html.ActionLink("Torna alla lista", "Index")
+</p>

@@ -1,0 +1,31 @@
+﻿@model AppHotel.Models.Cliente
+
+<h2>Elimina Cliente</h2>
+
+<h3>Sei sicuro di voler eliminare questo cliente?</h3>
+<div>
+    <h4>Dettagli Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Id Cliente</dt>
+        <dd>@Model.IdCliente</dd>
+        <dt>Codice Fiscale</dt>
+        <dd>@Model.CodiceFiscale</dd>
+        <dt>Cognome</dt>
+        <dd>@Model.Cognome</dd>
+        <dt>Nome</dt>
+        <dd>@Model.Nome</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Elimina" class="btn btn-default" />
+                @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    }
+</div>

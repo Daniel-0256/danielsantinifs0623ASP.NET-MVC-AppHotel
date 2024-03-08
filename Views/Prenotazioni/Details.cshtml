@@ -1,0 +1,30 @@
+﻿@model AppHotel.Models.Prenotazione
+
+<div>
+    <h4>Dettagli Prenotazione</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>@Model.IdPrenotazione</dd>
+        <dt>Data Prenotazione</dt>
+        <dd>@Model.DataPrenotazione</dd>
+        <dt>Data Inizio</dt>
+        <dd>@Model.DataInizio</dd>
+        <dt>Data Fine</dt>
+        <dd>@Model.DataFine</dd>
+        <dt>Caparra</dt>
+        <dd>@Model.Caparra</dd>
+        <dt>Tariffa</dt>
+        <dd>@Model.Tariffa</dd>
+        <dt>Dettagli</dt>
+        <dd>@Model.Dettagli</dd>
+        <dt>Cliente</dt>
+        <dd>@Model.IdCliente</dd>
+        <dt>Camera</dt>
+        <dd>@Model.IdCamera</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.IdPrenotazione }) |
+    @Html.ActionLink("Elimina", "Delete", new { id = Model.IdPrenotazione })
+</p>

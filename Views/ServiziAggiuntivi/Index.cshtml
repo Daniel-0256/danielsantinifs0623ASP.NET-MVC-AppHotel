@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AppHotel.Models.ServizioAggiuntivo>
+
+@{
+    ViewBag.Title = "Servizi Aggiuntivi";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Crea Nuovo Servizio", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.First().Descrizione)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Prezzo)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Descrizione)</td>
+            <td>@Html.DisplayFor(modelItem => item.Prezzo)</td>
+        </tr>
+    }
+</table>

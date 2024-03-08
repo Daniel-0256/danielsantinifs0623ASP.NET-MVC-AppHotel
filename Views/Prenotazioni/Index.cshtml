@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AppHotel.Models.Prenotazione>
+
+<p>
+    @Html.ActionLink("Nuova prenotazione", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Data Prenotazione</th>
+        <th>Data Inizio</th>
+        <th>Data Fine</th>
+        <th>Caparra</th>
+        <th>Tariffa</th>
+        <th>Dettagli</th>
+        <th>Cliente</th>
+        <th>Camera</th>
+        <th></th>
+    </tr>
+    @foreach (var prenotazione in Model)
+    {
+        <tr>
+            <td>@prenotazione.IdPrenotazione</td>
+            <td>@prenotazione.DataPrenotazione</td>
+            <td>@prenotazione.DataInizio</td>
+            <td>@prenotazione.DataFine</td>
+            <td>@prenotazione.Caparra</td>
+            <td>@prenotazione.Tariffa</td>
+            <td>@prenotazione.Dettagli</td>
+            <td>@prenotazione.IdCliente</td>
+            <td>@prenotazione.IdCamera</td>
+            <td>
+                @Html.ActionLink("Dettagli", "Details", new { id = prenotazione.IdPrenotazione })
+                @Html.ActionLink("Elimina", "Delete", new { id = prenotazione.IdPrenotazione })
+                @Html.ActionLink("CheckOut", "CheckOut", new { id = prenotazione.IdPrenotazione })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,44 @@
+﻿@model AppHotel.Models.DettaglioServizio
+
+@{
+    ViewBag.Title = "Crea Nuovo Dettaglio Servizio";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdPrenotazione, "Prenotazione")
+        @Html.DropDownListFor(model => model.IdPrenotazione, (IEnumerable<SelectListItem>)ViewBag.Prenotazioni, "-- Seleziona una Prenotazione --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdPrenotazione, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdServizio, "Servizio Aggiuntivo")
+        @Html.DropDownListFor(model => model.IdServizio, (IEnumerable<SelectListItem>)ViewBag.ServiziAggiuntivi, "-- Seleziona un Servizio --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.IdServizio, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Data)
+        @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Quantita)
+        @Html.EditorFor(model => model.Quantita, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Quantita, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crea" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Torna all'elenco", "Index")
+</div>

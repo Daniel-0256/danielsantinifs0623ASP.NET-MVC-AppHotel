@@ -1,0 +1,32 @@
+﻿@model AppHotel.Models.ServizioAggiuntivo
+
+@{
+    ViewBag.Title = "Crea Servizio Aggiuntivo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descrizione)
+        @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Prezzo)
+        @Html.EditorFor(model => model.Prezzo, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Prezzo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crea" class="btn btn-default" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Torna all'elenco", "Index")
+</div>

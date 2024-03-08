@@ -1,0 +1,27 @@
+﻿@model AppHotel.Models.CheckOutViewModel
+
+<h2>Riepilogo del Check-Out</h2>
+
+<div>
+    <h3>Dettagli del Soggiorno</h3>
+    <p>Data di inizio: @Model.DataInizio.ToShortDateString()</p>
+    <p>Data di fine: @Model.DataFine.ToShortDateString()</p>
+    <p>Tariffa giornaliera: @Model.Tariffa</p>
+    <p>Giorni di soggiorno: @(Model.DataFine - Model.DataInizio).Days</p>
+    <p>Totale soggiorno: @Model.TotaleSoggiorno</p>
+</div>
+
+<div>
+    <h3>Servizi Aggiuntivi</h3>
+    <p>Totale servizi aggiuntivi: @Model.TotaleServizi</p>
+</div>
+
+<div>
+    <h3>Riepilogo Finanziario</h3>
+    <p>Caparra pagata: @Model.Caparra</p>
+    <p>Totale da pagare: @Model.TotaleDaPagare</p>
+</div>
+
+<div>
+    @Html.ActionLink("Torna alla lista", "Index")
+</div>

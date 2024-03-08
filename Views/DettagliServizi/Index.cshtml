@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AppHotel.Models.DettaglioServizio>
+
+<h2>Dettagli Servizi</h2>
+
+<p>
+    @Html.ActionLink("Aggiungi Nuovo Servizio", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>ID Prenotazione</th>
+        <th>ID Servizio</th>
+        <th>Data</th>
+        <th>Quantità</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.IdPrenotazione)</td>
+            <td>@Html.DisplayFor(modelItem => item.IdServizio)</td>
+            <td>@Html.DisplayFor(modelItem => item.Data)</td>
+            <td>@Html.DisplayFor(modelItem => item.Quantita)</td>
+        </tr>
+    }
+</table>
